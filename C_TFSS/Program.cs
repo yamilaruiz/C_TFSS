@@ -20,7 +20,6 @@ namespace Actualizar_TFS
             // Iteración actual y nueva iteración
             string currentIteration = "ITyruiz\\2023\\Mayo_Q1";
             string newIteration = "ITyruiz\\2023\\Mayo_Q2";
-            string areaPath = "ITyruiz\\IT-DBA\\StarLabs";
 
             // Conexión a TFS
             TfsTeamProjectCollection tfs = new TfsTeamProjectCollection(new Uri(tfsUrl));
@@ -46,11 +45,13 @@ namespace Actualizar_TFS
                 workItem.Open();
                 workItem.Fields["System.IterationPath"].Value = newIteration;
                 workItem.Save();
+                Console.WriteLine("Se actualizó la " + workItem.Fields["System.WorkItemType"].Value + " " + workItem.Fields["System.Id"].Value + ". Nuevo valor de Iteration: " + workItem.Fields["System.IterationPath"].Value);
+
             }
 
             // Cerrar la conexión a TFS
             tfs.Dispose();
-
+            Console.WriteLine(" ");
             Console.WriteLine("Tareas actualizadas con éxito.");
             Console.ReadLine();
         }
