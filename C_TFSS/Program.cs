@@ -18,8 +18,11 @@ namespace Actualizar_TFS
             string tfsUrl = "http://desktop-gqopia9:8080/tfs/DefaultCollection";
 
             // Iteración actual y nueva iteración
-            string currentIteration = "ITyruiz\\2023\\Mayo_Q1";
-            string newIteration = "ITyruiz\\2023\\Mayo_Q2";
+            Console.Write("Ingrese el valor de la iteracion a buscar: ");
+            string currentIteration = Console.ReadLine();
+
+            Console.Write("Ingrese el valor de la nueva iteracion: ");
+            string newIteration = Console.ReadLine();
 
             // Conexión a TFS
             TfsTeamProjectCollection tfs = new TfsTeamProjectCollection(new Uri(tfsUrl));
@@ -52,7 +55,7 @@ namespace Actualizar_TFS
             // Cerrar la conexión a TFS
             tfs.Dispose();
             Console.WriteLine(" ");
-            Console.WriteLine("Tareas actualizadas con éxito.");
+            Console.WriteLine("Finalizó con éxito.");
             Console.ReadLine();
         }
     }
